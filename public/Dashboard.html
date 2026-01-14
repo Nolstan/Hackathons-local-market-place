@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /*   DARK DASHBOARD THEME */
@@ -127,6 +128,18 @@
             background-clip: text;
             color: transparent;
             font-weight: 800;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
         }
 
         .nav-links {
@@ -621,10 +634,12 @@
     <nav class="navbar dashboard-nav">
         <div class="container">
             <h1 class="logo" onclick="window.location.href='index.html'" style="cursor: pointer;">
-                Local<span>Market</span></h1>
+                <span class="logo-icon"><i class="fas fa-shopping-bag"></i></span>
+                Local<span>Market</span>
+            </h1>
             <div class="nav-links">
                 <span id="shopNameDisplay" class="shop-name-badge">Loading Shop...</span>
-                <a href="index.html">Tsamba Loyamba</a>
+                <a href="index.html">Malonda</a>
                 <button id="logoutBtn" class="btn-logout">Logout</button>
             </div>
         </div>
