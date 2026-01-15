@@ -511,6 +511,7 @@
         /*  MODAL ADD/EDIT proDuctC */
         .modal {
             display: none;
+            /* JS toggles to flex */
             position: fixed;
             z-index: 2000;
             left: 0;
@@ -520,19 +521,24 @@
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(8px);
             padding: 20px;
-            overflow-y: auto;
+            overflow: hidden;
+            /* Prevent body scroll, modal-content will handle it */
+            align-items: center;
+            justify-content: center;
         }
 
         .modal-content {
             background: var(--bg-card);
-            margin: 5% auto;
             border-radius: var(--radius-lg);
-            width: 95%;
+            width: 100%;
             max-width: 500px;
+            max-height: 90vh;
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
             animation: modalSlideIn 0.3s ease-out;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
             border: 1px solid var(--border);
+            position: relative;
         }
 
         @keyframes modalSlideIn {
@@ -575,6 +581,8 @@
 
         .modal-form {
             padding: 2rem;
+            overflow-y: auto;
+            flex: 1;
         }
 
         .form-group {

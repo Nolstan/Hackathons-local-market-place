@@ -42,7 +42,7 @@ async function loadShopDetails() {
             headers: { 'Authorization': `Bearer ${token}` }
         });
         if (response.status === 403) {
-            alert('Your account is banned. Please contact your service provider.');
+            alert('Akaunti yanu ndiyisaloledwa. Ayimbileni a LocalMarkert.');
             localStorage.clear();
             window.location.href = 'login.html';
             return;
@@ -104,7 +104,7 @@ async function loadOrders() {
  */
 function renderProducts(products) {
     if (products.length === 0) {
-        productGrid.innerHTML = '<tr><td colspan="4" class="loader">You haven\'t uploaded any products yet.</td></tr>';
+        productGrid.innerHTML = '<tr><td colspan="4" class="loader">Shop yanu ilibe katundu aliyense.</td></tr>';
         return;
     }
 
@@ -136,7 +136,7 @@ function renderProducts(products) {
  */
 function renderOrders(orders) {
     if (orders.length === 0) {
-        orderGrid.innerHTML = '<tr><td colspan="4" class="loader">You have no orders yet.</td></tr>';
+        orderGrid.innerHTML = '<tr><td colspan="4" class="loader">Mulibe order iliyonse.</td></tr>';
         return;
     }
 
@@ -332,6 +332,6 @@ async function toggleOrderStatus() {
     }
 }
 
-// Start
+
 init();
 
