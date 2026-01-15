@@ -3,9 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loading = document.getElementById('loading');
     const noBusinesses = document.getElementById('noBusinesses');
 
-    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-        ? '/api'
-        : 'https://market-place-q0q5.onrender.com/api';
 
     const fetchBusinesses = async () => {
         try {

@@ -2,10 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = urlParams.get('id');
 
-    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:5000/api'
-    : 'https://market-place-q0q5.onrender.com/api';
-
     // Page elements
     const loading = document.getElementById('loading');
     const productDetails = document.getElementById('productDetails');
@@ -66,11 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('businessLocation').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${business.location}`;
             document.getElementById('businessContact').innerHTML = `<i class="fas fa-phone"></i> ${business.contactInfo}`;
             document.getElementById('businessBio').textContent = business.bio || 'This business is part of the LocalMarket community.';
-            
+
             const orderStatusMessage = document.getElementById('orderStatusMessage');
-            
+
             // Show the place order button if the business can take orders
-            if(business.canPlaceOrders) {
+            if (business.canPlaceOrders) {
                 placeOrderBtn.classList.remove('hidden');
                 orderStatusMessage.innerHTML = ''; // Clear any previous message
             } else {
@@ -151,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         orderStatus.className = type; // 'success' or 'error'
         orderStatus.style.display = 'block';
     }
-    
+
     // Hide the button initially until we confirm the seller is active
     placeOrderBtn.classList.add('hidden');
 

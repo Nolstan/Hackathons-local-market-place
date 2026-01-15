@@ -1,11 +1,8 @@
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:5000/api'
-    : 'https://market-place-q0q5.onrender.com/api';
 const productGrid = document.getElementById('productGrid');
 
 
 //  Animate counter values
- 
+
 function animateValue(id, start, end, duration) {
     const obj = document.getElementById(id);
     if (!obj) return;
@@ -25,7 +22,7 @@ function animateValue(id, start, end, duration) {
 
 
 //   Fetch and animate hero stats
- 
+
 async function loadStats() {
     try {
         const response = await fetch(`${API_URL}/stats`);
