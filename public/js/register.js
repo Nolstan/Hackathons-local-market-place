@@ -35,7 +35,7 @@ if (registerForm) {
             const data = await response.json();
 
             if (response.ok) {
-                registerMessage.innerHTML = `<div class="success">✨ Registration Successful! Launching Dashboard...</div>`;
+                registerMessage.innerHTML = `<div class="success">Registration Successful! Launching Dashboard...</div>`;
 
                 // Store token and details
                 localStorage.setItem('token', data.token);
@@ -46,13 +46,13 @@ if (registerForm) {
                     window.location.href = 'dashboard.html';
                 }, 1000);
             } else {
-                registerMessage.innerHTML = `<div class="error">❌ ${data.error || 'Failed to create shop'}</div>`;
+                registerMessage.innerHTML = `<div class="error">${data.error || 'Failed to create shop'}</div>`;
                 submitBtn.innerText = originalText;
                 submitBtn.disabled = false;
             }
         } catch (error) {
             console.error('Registration error:', error);
-            registerMessage.innerHTML = `<div class="error">❌ Connection error. Is the server running?</div>`;
+            registerMessage.innerHTML = `<div class="error">Connection error. Is the server running?</div>`;
             submitBtn.innerText = originalText;
             submitBtn.disabled = false;
         }
@@ -61,6 +61,5 @@ if (registerForm) {
 
 // Check if already logged in
 window.addEventListener('DOMContentLoaded', () => {
-    // We remove the auto-redirect here to allow users to see the registration page 
-    // even if they have a stale token or want to create a second shop.
+//    implemment laterrrr
 });

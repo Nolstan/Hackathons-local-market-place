@@ -60,12 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const business = product.businessId;
         if (business) {
-            sellerId = business._id; // Capture seller ID
+            sellerId = business._id; // get seller ID
             document.getElementById('ownerName').textContent = business.ownerName;
             document.getElementById('businessName').textContent = business.businessName;
             document.getElementById('businessLocation').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${business.location}`;
             document.getElementById('businessContact').innerHTML = `<i class="fas fa-phone"></i> ${business.contactInfo}`;
-            document.getElementById('businessBio').textContent = business.bio || 'This business is part of the StoreSync community.';
+            document.getElementById('businessBio').textContent = business.bio || 'This business is part of the LocalMarket community.';
             
             const orderStatusMessage = document.getElementById('orderStatusMessage');
             
@@ -76,8 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 placeOrderBtn.classList.add('hidden');
                 placeOrderBtn.disabled = true;
-                // Optionally inform user the seller is inactive
-                orderStatusMessage.innerHTML = `Ogulitsa sali palayini, Ayimbileni: <a href="tel:${business.contactInfo}">${business.contactInfo}</a>`;
+                // Inform kastoma the seller is inactive
+                orderStatusMessage.innerHTML = `Ogulitsa sali palayini, Ayimbileni pa : <a href="tel:${business.contactInfo}">${business.contactInfo}</a>`;
                 orderStatusMessage.style.color = 'var(--text-muted)';
             }
         }
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         errorView.classList.remove('hidden');
     }
 
-    // --- Order Modal Logic ---
+    // Order Modal Logic
     placeOrderBtn.addEventListener('click', () => {
         orderModal.classList.remove('hidden');
     });
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await res.json();
 
             if (data.success) {
-                showOrderStatus('Zikomo,mwatumiza order yanu.', 'success');
+                showOrderStatus('Zatheka!, mwatumiza order yanu.', 'success');
                 orderForm.reset();
                 setTimeout(() => {
                     orderModal.classList.add('hidden');

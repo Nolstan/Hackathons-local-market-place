@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const businessName = (user.businessName || '').toLowerCase();
             const ownerName = (user.ownerName || '').toLowerCase();
             const email = (user.email || '').toLowerCase();
-            const phone = (user.contactInfo || '').toLowerCase(); // Use contactInfo for phone search
+            const phone = (user.contactInfo || '').toLowerCase(); //contactInfo for phone search
 
             return businessName.includes(term) ||
                 ownerName.includes(term) ||
@@ -275,8 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.editProduct = (id) => {
-        // Redirect to a specialized admin edit page or open a modal
-        // For now, let's alert that this requires the business context.
+        // Redirect to a specialized admin edit page or open a modal, This is fo later Business freelancer page
         alert('Product editing for admins is being refined. Using direct database ID: ' + id);
     };
 
@@ -309,10 +308,10 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.style.display = 'flex';
     };
 
-    // Initial Load
+    // load users
     loadUsers();
 
-    // Logout logic
+    // Logout
     document.getElementById('logoutBtn').onclick = () => {
         localStorage.removeItem('token');
         window.location.href = 'login.html';

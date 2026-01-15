@@ -3,9 +3,9 @@ const API_URL = window.location.hostname === 'localhost' || window.location.host
     : 'https://market-place-q0q5.onrender.com/api';
 const productGrid = document.getElementById('productGrid');
 
-/**
- * Animate counter values
- */
+
+//  Animate counter values
+ 
 function animateValue(id, start, end, duration) {
     const obj = document.getElementById(id);
     if (!obj) return;
@@ -23,9 +23,9 @@ function animateValue(id, start, end, duration) {
     window.requestAnimationFrame(step);
 }
 
-/**
- * Fetch and animate hero stats
- */
+
+//   Fetch and animate hero stats
+ 
 async function loadStats() {
     try {
         const response = await fetch(`${API_URL}/stats`);
@@ -36,7 +36,7 @@ async function loadStats() {
         }
     } catch (error) {
         console.error('Error loading stats:', error);
-        // Remove misleading fake stats
+        // Remove misleading fake stats, more like overiding after leads dynamic data
         document.getElementById('productCounter').innerText = '0+';
         document.getElementById('shopCounter').innerText = '0+';
     }
@@ -44,9 +44,9 @@ async function loadStats() {
 
 let allProducts = [];
 
-/**
- * Fetch discovery products from the backend
- */
+
+//  Fetch  products from the backend
+
 async function loadProducts() {
     try {
         loadStats(); // Call stats loading as well
@@ -77,14 +77,14 @@ async function loadProducts() {
         productGrid.innerHTML = `
             <div class="loader">
                 Unable to load products. <br>
-                <small>This usually happens if the database is disconnected or the server is down.</small>
+                <small>either database is disconnected or the server is down.</small>
             </div>`;
     }
 }
 
-/**
- * Render product cards into the grid
- */
+
+//  Render product cards into the grid ,............
+
 function renderProducts(products) {
     if (!products || products.length === 0) {
         productGrid.innerHTML = '<div class="loader">No products found. Start exploring!</div>';
@@ -99,7 +99,7 @@ function renderProducts(products) {
                 <span class="product-shop">By ${product.businessId?.ownerName || 'Local Seller'}</span>
                 <div class="product-footer">
                     <span class="product-price">MWK ${product.price.toLocaleString()}</span>
-                    <button class="btn-buy" onclick="window.location.href='product-details.html?id=${product._id}'">View Details</button>
+                    <button class="btn-buy" onclick="window.location.href='product-details.html?id=${product._id}'">Onani Zonse</button>
                 </div>
             </div>
         </div>

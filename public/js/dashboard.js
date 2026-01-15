@@ -23,18 +23,18 @@ const activeStatusToggle = document.getElementById('activeStatusToggle');
 activeStatusToggle.disabled = true;
 
 
-/**
- * Initialize Dashboard
- */
+
+//  Initialize Dashboard
+
 async function init() {
     await loadShopDetails();
     await loadProducts();
     await loadOrders();
 }
 
-/**
- * Fetch Shop Details
- */
+
+//   Fetch Shop Details
+
 async function loadShopDetails() {
     const token = localStorage.getItem('token');
     try {
@@ -61,9 +61,9 @@ async function loadShopDetails() {
     }
 }
 
-/**
- * Fetch and Render Products
- */
+
+// Fetch and Render Products
+
 async function loadProducts() {
     try {
         const response = await fetch(`${API_URL}/products/business/${shopId}`);
@@ -79,9 +79,9 @@ async function loadProducts() {
     }
 }
 
-/**
- * Fetch and Render Orders
- */
+
+// Fetch and Render Orders
+
 async function loadOrders() {
     const token = localStorage.getItem('token');
     try {
@@ -99,9 +99,9 @@ async function loadOrders() {
     }
 }
 
-/**
- * Render Product Table Rows
- */
+
+// Render Product Table Rows
+
 function renderProducts(products) {
     if (products.length === 0) {
         productGrid.innerHTML = '<tr><td colspan="4" class="loader">Shop yanu ilibe katundu aliyense.</td></tr>';
@@ -131,9 +131,8 @@ function renderProducts(products) {
     `).join('');
 }
 
-/**
- * Render Order Table Rows
- */
+//  Render Order Table Rows
+
 function renderOrders(orders) {
     if (orders.length === 0) {
         orderGrid.innerHTML = '<tr><td colspan="4" class="loader">Mulibe order iliyonse.</td></tr>';
@@ -154,9 +153,9 @@ function renderOrders(orders) {
     `).join('');
 }
 
-/**
- * Handle Add/Edit Product
- */
+
+//  Handle Add/Edit Product
+
 productForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -212,9 +211,9 @@ productForm.addEventListener('submit', async (e) => {
     }
 });
 
-/**
- * Open Modal for Edit
- */
+
+// Open Modal for Edit
+
 window.editProduct = async (id) => {
 
     document.getElementById('productId').value = id;
@@ -223,9 +222,8 @@ window.editProduct = async (id) => {
     modal.style.display = 'flex';
 };
 
-/**
- * Delete Product
- */
+// Delete Product
+
 window.deleteProduct = async (id) => {
     if (!confirm('Are you sure you want to delete this product?')) return;
 
@@ -247,9 +245,9 @@ window.deleteProduct = async (id) => {
     }
 };
 
-/**
- * Delete Order
- */
+
+// Dlete Order
+
 window.deleteOrder = async (id) => {
     if (!confirm('Are you sure you want to delete this order?')) return;
 
@@ -274,9 +272,9 @@ window.deleteOrder = async (id) => {
     }
 };
 
-/**
- * Modal Handling
- */
+
+// Modal Handling
+
 openModalBtn.onclick = () => {
     modalTitle.innerText = 'Add New Product';
     document.getElementById('productId').value = '';
@@ -299,9 +297,9 @@ document.getElementById('logoutBtn').onclick = () => {
     window.location.href = 'index.html';
 };
 
-/**
- * Handle Active Status Toggle
- */
+
+// Handle Active Status Toggle
+
 activeStatusToggle.addEventListener('change', async () => {
     await toggleOrderStatus();
 });
